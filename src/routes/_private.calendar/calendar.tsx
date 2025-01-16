@@ -16,7 +16,7 @@ export const CalendarHeader = ({ exportToCSV, exportToPDF }: { exportToCSV: () =
         <>
             <div className="flex justify-between items-center">
                 <div className="flex items-center mt-3 gap-4 dark:text-white ">
-                    <Button onClick={handlePrevious}>
+                    <Button onClick={handlePrevious} className="btn btn-secondary dark:text-white">
                         <FontAwesomeIcon icon={faLessThan} />
                     </Button>
 
@@ -41,13 +41,13 @@ export const CalendarHeader = ({ exportToCSV, exportToPDF }: { exportToCSV: () =
 
                 </div>
                 <div className="flex items-center gap-2 mt-2 ">
-                    <Button onClick={exportToCSV} className="btn btn-secondary">
+                    <Button onClick={exportToCSV} className="btn btn-secondary dark:text-white">
                         Export as CSV
                     </Button>
-                    <Button onClick={exportToPDF} className="btn btn-secondary">
+                    <Button onClick={exportToPDF} className="btn btn-secondary dark:text-white">
                         Export as PDF
                     </Button>
-                    <Button onClick={handleNext}>
+                    <Button onClick={handleNext} className="btn btn-secondary dark:text-white">
                         <FontAwesomeIcon icon={faGreaterThan} />
                     </Button>
                 </div>
