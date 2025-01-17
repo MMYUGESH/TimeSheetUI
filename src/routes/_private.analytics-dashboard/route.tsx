@@ -71,7 +71,7 @@ export const Route = () => {
     const monthStart = startOfMonth(selectedMonth);
     const monthEnd = endOfMonth(selectedMonth);
 
-    // Filter data for the selected month
+    
     const filteredData = statuses.filter((item) => {
         const itemDate = parseDate(item.date);
         return (
@@ -79,7 +79,7 @@ export const Route = () => {
         );
     });
 
-    // Total days in the selected month
+
     const totalDaysInMonth = monthEnd.day;
 
     // Calculate Key Metrics
@@ -154,7 +154,7 @@ export const Route = () => {
         //     const itemDate = parseDate(item.date);
         //     if (view === "weekly") {
         //         const weekIndex = Math.floor((itemDate.day - 1) / 7);
-        //         return weekIndex === activeIndex; // Only include data for the selected week
+        //         return weekIndex === activeIndex; 
         //     }
         //     return itemDate.compare(monthStart) >= 0 && itemDate.compare(monthEnd) <= 0;
         // });
@@ -238,7 +238,7 @@ export const Route = () => {
             const [year, month, day] = e.target.value.split("-").map(Number); // Parse input
             if (year && month && day) {
                 setSelectedMonth(new CalendarDate(year, month, day));
-                console.log(selectedMonth, "handleoldmonth")
+                // console.log(selectedMonth, "handleoldmonth")
             } else {
                 console.error("Invalid input for year or month:", e.target.value);
             }

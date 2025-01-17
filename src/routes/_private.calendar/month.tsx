@@ -124,35 +124,7 @@ export const Month = ({ date, setStatusesData }: MonthProps) => {
         setIsDialogOpen(false);
     };
 
-    // Submit all statuses
-    // const handleSubmit = async () => {
-    //     const allStatuses = Object.keys(statuses).map((date) => ({
-    //         date,
-    //         ...statuses[date],
-    //     }));
-    //     await Promise.all(
-    //         allStatuses.map(async (item) => {
-    //             const response = await fetch(`http://localhost:3001/statuses?date=${item.date}`);
-    //             const data = await response.json();
-    //             if (data.length > 0) {
-    //                 // Update existing status
-    //                 await fetch(`http://localhost:3001/statuses/${data[0].id}`, {
-    //                     method: "PUT",
-    //                     headers: { "Content-Type": "application/json" },
-    //                     body: JSON.stringify(item),
-    //                 });
-    //             } else {
-    //                 // Create new status
-    //                 await fetch("http://localhost:3001/statuses", {
-    //                     method: "POST",
-    //                     headers: { "Content-Type": "application/json" },
-    //                     body: JSON.stringify(item),
-    //                 });
-    //             }
-    //         })
-    //     );
-    //     alert("Statuses submitted successfully!");
-    // };
+    
     const handleSubmit = async () => {
 
         const startOfMonthDate = startOfMonth(date);
@@ -217,22 +189,7 @@ export const Month = ({ date, setStatusesData }: MonthProps) => {
 
     };
 
-    // const handleRecurringStatus = () => {
-
-    //     if (recurringDay !== null && recurringStatus) {
-    //         const updatedStatuses = { ...statuses };
-    //         for (let current = startDate; current <= endDate; current = current.add({ days: 1 })) {
-    //             if (current.toDate().getDay() === recurringDay) {
-    //                 const isoDate = current.toDate().toISOString().split("T")[0];
-    //                 updatedStatuses[isoDate] = { status: recurringStatus };
-    //             }
-    //         }
-
-
-    //         setStatuses(updatedStatuses);
-    //     }
-    //     setIsRecurringDialogOpen(false);
-    // };
+   
     const handleRecurringStatus = () => {
         if (recurringDay !== null && recurringStatus) {
             const updatedStatuses = { ...statuses };
@@ -244,17 +201,17 @@ export const Month = ({ date, setStatusesData }: MonthProps) => {
                     if (recurringStatus === "Working") {
                         updatedStatuses[isoDate] = {
                             status: "Working",
-                            hours: workingHours, // Default working hours (can be adjusted as needed)
+                            hours: workingHours, 
                         };
                     } else if (recurringStatus === "Sick Leave") {
                         updatedStatuses[isoDate] = {
                             status: "Sick Leave",
-                            note: sickLeaveNote, // Default note for sick leave
+                            note: sickLeaveNote, 
                         };
                     } else if (recurringStatus === "Holiday") {
                         updatedStatuses[isoDate] = {
                             status: "Holiday",
-                            note: holidayNote, // Default note for holiday
+                            note: holidayNote, 
                         };
                     } else {
                         updatedStatuses[isoDate] = { status: recurringStatus };
@@ -294,7 +251,7 @@ export const Month = ({ date, setStatusesData }: MonthProps) => {
             return `${status.status} ${status.note !== "" ? `(${status.note})` : ""}`;
         }
         if (status.status === "Holiday") {
-            console.log(status)
+            // console.log(status)
             return `${status.status} ${status.note !== "" ? `(${status.note})` : ""}`;
         }
         return status.status || "No Status";
