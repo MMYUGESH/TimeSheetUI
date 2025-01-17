@@ -97,3 +97,6 @@ Additional Notes:
 
 ->By following these steps, you should be able to set up, run, and develop your React project with mock API data and routing functionalities.
 
+Browser Error
+If you face any error in the browser window after running the project then refresh the browser it may arise due to the latest react-router updation
+
